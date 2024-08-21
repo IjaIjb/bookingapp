@@ -94,7 +94,7 @@ const Home = () => {
                 Contact&nbsp;Us
               </NavLink>
               <NavLink
-                to="/book-now"
+                to="/manage-booking"
                 className=" flex space-x-2 z-10 py-2 pr-4 text-sm tracking-wider font-normal hover:font-semibold leading-5  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:pb-5 "
                 style={({ isActive }) =>
                   isActive
@@ -104,7 +104,7 @@ const Home = () => {
               >
                 Manage&nbsp;Booking
               </NavLink>
-
+            
               <div className="z-10 relative text-white rounded-[10px] bg-white h-[30px] w-[150px] flex items-center justify-center">
             <button
               type="button"
@@ -117,17 +117,19 @@ const Home = () => {
                 <h5 className="text-black z-10 text-[20px] font-[600]">
               Login
                 </h5>
-              <div
-                className={`${
-                  open
-                    ? " max-h-fit py-2.5 z-10 px-2.5 top-[45px]"
-                    : " max-h-0 z-10 overflow-hidden top-0 "
-                } transition-[top] duration-200 ease-in-out absolute  w-[136px] rounded-[10px] shadow-[0_4px_10px_rgba(0,0,0,0.1)] flex flex-col gap-2.5 bg-white  z-10`}
-                // onClick={handleLogout}
-              >
-                <Link className='z-10 text-black' to="/dashboard/profile">Profile</Link>
-                <button className='z-10 text-black' >Log out</button>
-              </div>
+            <div
+  className={`${
+    open
+      ? " max-h-fit py-2.5 z-10 px-2.5 top-[45px]"
+      : " max-h-0 z-10 overflow-hidden top-0 "
+  } transition-[top] cursor-pointer duration-200 absolute ease-in-out  w-[200px] rounded-[10px] shadow-[0_4px_10px_rgba(0,0,0,0.1)] flex flex-col gap-4 bg-white  z-20`}
+>
+  {/* <div> */}
+  <NavLink className=' text-black text-[16px] w-full z-30' to="/agent-login"><h5 className='w-full'>Become an Agent</h5></ NavLink>
+  <NavLink className=' text-black text-[16px] z-30' to="/agent-login">Login as an Agent</NavLink>
+  {/* </div> */}
+</div>
+
             </button>
           </div>
             </div>

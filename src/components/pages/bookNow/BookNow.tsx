@@ -38,12 +38,16 @@ const BookNow = () => {
       <div className="grid grid-cols-12">
         <div className="col-span-5">
           <div className="pl-[50px] pt-[40px] pr-[20px] flex flex-col">
+          <Link
+                    to="/view-properties"
+                    // className="text-primary text-lg  font-bold  hover:underline"
+                  >
             <img
               src="/images/Frame 67.svg"
               alt=""
               className="w-[35px] h-[35px] "
             />
-
+</Link>
             <h4 className="text-[#000000] py-8 text-[30px]">
               Spacious 2 Bedroom Flat
             </h4>
