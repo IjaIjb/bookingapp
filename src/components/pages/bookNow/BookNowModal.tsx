@@ -85,6 +85,70 @@ const BookNowModal = (props: any) => {
     return formattedDates;
   };
 
+// Helper function to get the ordinal suffix
+const getOrdinalSuffix = (n: number) => {
+  const s = ["th", "st", "nd", "rd"],
+        v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+};
+
+const formatSelected = () => {
+  const formattedDates = [];
+  let i = 0;
+  let prefixCount = 1;
+
+  while (i < selectedDates.length) {
+    const currentDate = selectedDates[i];
+    let consecutiveDates = [currentDate];
+
+    // Check for consecutive dates
+    while (
+      i < selectedDates.length - 1 &&
+      selectedDates[i + 1] - selectedDates[i] === 86400000
+    ) {
+      consecutiveDates.push(selectedDates[i + 1]);
+      i++;
+    }
+
+    const prefixLabel1 = `${getOrdinalSuffix(prefixCount)} Check-in:`;
+    const prefixLabel2 = `${getOrdinalSuffix(prefixCount)} Check-out:`;
+
+    if (consecutiveDates.length > 1) {
+      // If there are consecutive dates, set start date as the first date
+      // and end date as the day after the last consecutive date
+      const startDate: any = consecutiveDates[0];
+      const endDate = new Date(consecutiveDates[consecutiveDates.length - 1]);
+      endDate.setDate(endDate.getDate() + 1);
+
+      formattedDates.push(
+        <li key={i}>
+          {`${prefixLabel2} ${startDate.toDateString()} - ${prefixLabel2} ${endDate.toDateString()}`}
+        </li>
+      );
+    } else {
+      // If there's only one date, set start date as the picked date
+      // and end date as the day after the picked date
+      const startDate: any = currentDate;
+      const endDate = new Date(startDate);
+      endDate.setDate(endDate.getDate() + 1);
+
+      formattedDates.push(
+        <li key={i} className="space-y-4 gap-4">
+          {`${prefixLabel1} ${startDate.toDateString()} (1pm) - ${prefixLabel2} ${endDate.toDateString()} (12noon)`}
+        </li>
+      );
+    }
+
+    i++;
+    prefixCount++;
+  }
+
+  return formattedDates;
+};
+
+  
+  
+
   // Initial form data
   const initialData = {
     email:
@@ -112,7 +176,7 @@ const BookNowModal = (props: any) => {
         onSubmit={onSubmit}
       >
         {({ errors, values, setFieldValue }) => (
-          <Form className="w-full px-10  mt-10 lg:mt-5 mb-6 flex flex-col justify-between">
+          <Form className="w-full overflow-y-scroll max-h-[550px] px-10  mt-10 lg:mt-5 mb-6 flex flex-col justify-between">
             <h3 className="text-[#000000] text-[20px] pb-2">
               Please fill the information
             </h3>
@@ -135,8 +199,8 @@ const BookNowModal = (props: any) => {
                   <ErrorMessage name="name" />
                 </p>
               </div>
-              <div className="flex gap-4 mb-3">
-                <div className="  relative">
+              <div className="flex w-full gap-4 mb-3">
+                <div className=" w-full relative">
                   <Field
                     className=" block w-full h-10 border  pl-3 rounded-[15px] focus:outline-none border-[#8A8787] "
                     name="phone"
@@ -148,7 +212,7 @@ const BookNowModal = (props: any) => {
                     <ErrorMessage name="phone" />
                   </p>
                 </div>
-                <div className=" relative">
+                <div className="w-full relative">
                   <Field
                     className=" block w-full h-10 border  pl-3 rounded-[15px] focus:outline-none border-[#8A8787] "
                     name="email"
@@ -162,8 +226,8 @@ const BookNowModal = (props: any) => {
                 </div>
               </div>
 
-              <div className="flex gap-4 mb-3">
-                <div className="  relative">
+              <div className="flex w-full gap-4 mb-3">
+                <div className="w-full  relative">
                   <Field
                     className=" block w-full h-10 border  pl-3 rounded-[15px] focus:outline-none border-[#8A8787] "
                     name="name_of_nxt_of_kin"
@@ -175,7 +239,7 @@ const BookNowModal = (props: any) => {
                     <ErrorMessage name="name_of_nxt_of_kin" />
                   </p>
                 </div>
-                <div className=" relative">
+                <div className="w-full relative">
                   <Field
                     className=" block w-full h-10 border  pl-3 rounded-[15px] focus:outline-none border-[#8A8787] "
                     name="nunmer_of_nxt_of_kin"
@@ -189,7 +253,7 @@ const BookNowModal = (props: any) => {
                 </div>
               </div>
 
-              <div className=" mb-3 relative">
+              <div className=" mb-6 relative">
                 {/* <label
                       className=" text-[#958F8F] text-[15px] font-[600] "
                       htmlFor="email"
@@ -208,30 +272,38 @@ const BookNowModal = (props: any) => {
                 </p>
               </div>
 
-              <div className="flex gap-4 mb-3">
+              <div className=" mb-3">
+               
                 <DatePicker
         selected={null}
         onChange={handleDateChange}
         inline
+        className="w-full"
         minDate={new Date()} // Prevent selection of past dates
         highlightDates={[
           {
             'react-datepicker__day--highlighted-custom': selectedDates,
           },
         ]}
+        dateFormat="yyyy/MM/dd"
       />
                 <div className="mt-4">
         <h3 className="text-md">Selected Dates:</h3>
         <ul className="list-disc pl-6">
         {formatSelectedDates()}
         </ul>
-        <p className="mt-2">
-          Number of Dates Picked: {selectedDates.length}
+
+      
+        <p className="my-2">
+          Night: {selectedDates.length}
         </p>
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <h3 className="text-md">Start Date: {startDate?.toDateString() || 'None'}</h3>
           <h3 className="text-md">End Date: {endDate?.toDateString() || 'None'}</h3>
-        </div>
+        </div> */}
+          <ul className="list-disc pl-6 space-y-1">
+        {formatSelected()}
+        </ul>
       </div>
                 {/* <div className=" relative">
                

@@ -12,6 +12,7 @@ import LoginAgent from './components/pages/agent/LoginAgent';
 import AddProperty from './components/pages/agent/AddProperty';
 import AllProperty from './components/pages/agent/AllProperty';
 import ViewAgentProperty from './components/pages/agent/ViewAgentProperty';
+import BecomeAgent from './components/pages/agent/BecomeAgent';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
     <Route  path="/add-property" element={<AddProperty/>}/>
     <Route  path="/agent-all-property" element={<AllProperty/>}/>
     <Route  path="/agent-view-property" element={<ViewAgentProperty/>}/>
+    <Route  path="/become-agent" element={<BecomeAgent/>}/>
     {/* <Route  path="/banking-page" element={<BankPage/>}/>
     <Route  path="/sign-in" element={<Login/>}/>
     <Route  path="/terms" element={<TermsAndCon/>}/>

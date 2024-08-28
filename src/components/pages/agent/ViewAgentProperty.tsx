@@ -3,6 +3,7 @@ import Navbar from "../Navbar";
 import { Link, NavLink } from "react-router-dom";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import BookNowModal from "../bookNow/BookNowModal";
+import Carousel from "react-grid-carousel";
 
 const ViewAgentProperty = () => {
   const [display, setDisplay] = useState(false);
@@ -41,9 +42,9 @@ const ViewAgentProperty = () => {
   };
   return (
     <div>
-      <div className="grid md:grid-cols-12">
+      <div className="grid md:grid-cols-12 gap-4">
         <div className="col-span-5">
-          <div className="md:pl-[50px] pt-[40px] pr-[20px] flex flex-col">
+          <div className="md:pl-[50px] pl-[20px] pt-[40px] pr-[20px] flex flex-col">
             <div className="flex gap-4">
               <Link
                 to="/agent-all-property"
@@ -105,7 +106,7 @@ const ViewAgentProperty = () => {
           className="peer hidden"
           onChange={handleOptionChange}
         />
-        <span className="mr-2">Download PDF</span>
+        <span className="mr-2">Markup the price</span>
         <div className="w-4 h-4 border border-gray-300 rounded-full peer-checked:bg-primary peer-checked:border-primary"></div>
       </label>
 
@@ -128,7 +129,7 @@ const ViewAgentProperty = () => {
           className="peer hidden"
           onChange={handleOptionChange}
         />
-        <span className="mr-2">Send Email</span>
+        <span className="mr-2">Accept the 10%</span>
         <div className="w-4 h-4 border border-gray-300 rounded-full peer-checked:bg-primary peer-checked:border-primary"></div>
       </label>
 
@@ -147,8 +148,18 @@ const ViewAgentProperty = () => {
           </div>
         </div>
         <div className="col-span-7">
+        <Carousel cols={1} rows={1} loop>
+            <Carousel.Item>
           <img src="/images/Frame 38.svg" alt="" className=" w-full h-full" />
-        </div>
+            
+            </Carousel.Item>
+            <Carousel.Item>
+            <img src="/images/bg.svg" alt="" className=" w-full h-full" />
+
+            </Carousel.Item>
+           
+          </Carousel>
+          </div>
       </div>
 
       <div
@@ -159,7 +170,7 @@ const ViewAgentProperty = () => {
       ></div>
 
       {display && (
-        <div className="w-[500px] fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] shadow-[0_4px_10px_rgba(0,0,0,0.1)] bg-white  z-[200] rounded-[10px] overflow-hidden h-fit ">
+        <div className="w-full md:w-[500px] fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] shadow-[0_4px_10px_rgba(0,0,0,0.1)] bg-white  z-[200] rounded-[10px] overflow-hidden h-fit ">
           {showDefaultConnectors()}
         </div>
       )}

@@ -7,6 +7,7 @@ import { Transition } from "@headlessui/react";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [open, setOpen] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   return (
     <div>
@@ -125,7 +126,7 @@ const Home = () => {
   } transition-[top] cursor-pointer duration-200 absolute ease-in-out  w-[200px] rounded-[10px] shadow-[0_4px_10px_rgba(0,0,0,0.1)] flex flex-col gap-4 bg-white  z-20`}
 >
   {/* <div> */}
-  <NavLink className=' text-black text-[16px] w-full z-30' to="/agent-login"><h5 className='w-full'>Become an Agent</h5></ NavLink>
+  <NavLink className=' text-black text-[16px] w-full z-30' to="/become-agent"><h5 className='w-full'>Become an Agent</h5></ NavLink>
   <NavLink className=' text-black text-[16px] z-30' to="/agent-login">Login as an Agent</NavLink>
   {/* </div> */}
 </div>
@@ -147,7 +148,7 @@ const Home = () => {
           className="absolute top-20 right-0 mt-20 mr-4 w-[200px]"
         >
           {(ref) => (
-            <div className="lg:hidden    bg-amber-400   mt-3" id="mobile-menu">
+            <div className="lg:hidden z-20   bg-amber-400   mt-3" id="mobile-menu">
               <div ref={ref} className=" pt-6 pb-3 space-y-1">
                 {/* <NavLink
                   to="/"
@@ -159,17 +160,17 @@ const Home = () => {
                 <hr className="pb-3" /> */}
 
                 <NavLink
-                  to="/amenities"
+                  to="/"
                   onClick={() => setIsOpen(!isOpen)}
                   className="block text-[#616161] pl-3 font-medium hover:bg-gray-100"
                 >
-                  Amenities
+                  About
                 </NavLink>
 
                 <hr className="pb-3" />
 
                 <NavLink
-                  to="/contact"
+                  to="/"
                   onClick={() => setIsOpen(!isOpen)}
                   className="block text-[#616161] pl-3  font-medium hover:bg-gray-100"
                 >
@@ -178,12 +179,78 @@ const Home = () => {
                 <hr className="pb-3" />
 
                 <NavLink
-                  to="/book-now"
+                  to="/manage-booking"
                   onClick={() => setIsOpen(!isOpen)}
                   className="block text-[#616161]  pl-3  font-medium hover:bg-gray-100"
                 >
-                  Book Now
+                 Manage Booking
                 </NavLink>
+
+                <hr className="pb-3" />
+
+
+                <NavLink
+                  onClick={() => setToggle((prev) => !prev)}
+                  className="lg:pb-5 p-3 text-[#616161] py-3 font-medium  "
+                  // onMouseOut={() => setToggle((prev) => (!prev))}
+                >
+                  <div className="flex pl-3 justify-between pb-3 pt-2">
+                    <span> Login</span>
+                    <span className="pr-10">
+                      {toggle ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="m16.9 13.4l-4.2-4.2c-.4-.4-1-.4-1.4 0l-4.2 4.2c-.4.4-.4 1 0 1.4s1 .4 1.4 0l3.5-3.5l3.5 3.5c.2.2.4.3.7.3c.3 0 .5-.1.7-.3c.4-.4.4-1 0-1.4z"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M12 15.121a.997.997 0 0 1-.707-.293L7.05 10.586a1 1 0 0 1 1.414-1.414L12 12.707l3.536-3.535a1 1 0 0 1 1.414 1.414l-4.243 4.242a.997.997 0 0 1-.707.293Z"
+                          />
+                        </svg>
+                      )}
+                    </span>
+                  </div>
+                </NavLink>
+
+                <div className={`${toggle ? "flex " : "hidden"} pl-6`}>
+                  <div className=" font-poppins flex flex-col justify-center flex-1">
+                    <NavLink
+                      to={"/become-agent"}
+                      onClick={() => {
+                        setIsOpen(!isOpen);
+                        setToggle(false);
+                      }}
+                      className="block font-normal text-[12px] cursor-pointer text-black hover:text-gray-900 hover:font-semibold mb-4"
+                    >
+                     Become an Agent
+                    </NavLink>
+                    <NavLink
+                      to={"/agent-login"}
+                      onClick={() => {
+                        setIsOpen(!isOpen);
+                        setToggle(false);
+                      }}
+                      className=" block text-[12px] font-normal cursor-pointer text-black hover:text-gray-900 hover:font-semibold mb-3"
+                    >
+                     Agent Login
+                    </NavLink>
+                  </div>
+                </div>
+                <hr className="pb-2" />
               </div>
             </div>
           )}

@@ -16,7 +16,7 @@ const ViewProperties = () => {
           />
           <div className="max-w-screen-xl px-3 lg:px-10  mx-auto lg:gap-8 xl:gap-12 ">
             <div className="flex flex-col gap-2 md:pt-[130px] pt-[100px] h-full text-white">
-              <div className="grid lg:grid-cols-3 grid-cols-2 gap-2 lg:gap-10 z-10">
+              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-2 lg:gap-10 z-10">
                 <div className="rounded-[15px] overflow-hidden">
                   <div className="relative h-[200px]">
                     <img

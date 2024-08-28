@@ -29,7 +29,7 @@ const ManageBooking = () => {
     navigate("/view-booking");
   };
   return (
-    <div className="pl-[50px] pt-[40px]">
+    <div className="md:pl-[50px] pt-[40px]">
       <div className="flex pl-[50px] gap-4 items-center">
         <Link
           to="/"
@@ -44,10 +44,10 @@ const ManageBooking = () => {
 
         <h4 className="text-[#002221] text-[20px]">Manage Booking</h4>
       </div>
-      <div className="grid grid-cols-12 items-center">
+      <div className="md:grid md:grid-cols-12 items-center">
         <div className="col-span-5">
-          <div className="pl-[50px] pt-[40px] pr-[20px] flex flex-col">
-            <h4 className="text-[#000000] py-8 text-[30px]">
+          <div className="pl-[50px] pt-[25px] md:pt-[40px] pr-[20px] flex flex-col">
+            <h4 className="text-[#000000] py-8 text-[25px] md:text-[30px]">
               Enter your email or your phone number
             </h4>
 
@@ -57,7 +57,7 @@ const ManageBooking = () => {
               onSubmit={onSubmit}
             >
               {({ errors, values, setFieldValue }) => (
-                <Form className="w-full  mt-10 lg:mt-5 mb-6 flex flex-col justify-between">
+                <Form className="w-full   lg:mt-5 mb-6 flex flex-col justify-between">
                   <div className="mb-5">
                     <div className=" relative mb-3">
                       <Field
@@ -83,7 +83,7 @@ const ManageBooking = () => {
             </Formik>
           </div>
         </div>
-        <div className="col-span-7">
+        <div className="col-span-7 md:block hidden">
           <img src="/images/cuate.svg" alt="" className=" w-full h-full" />
         </div>
       </div>

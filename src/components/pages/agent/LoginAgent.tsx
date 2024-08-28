@@ -46,7 +46,7 @@ const LoginAgent = () => {
     </div>
     <div className="grid md:grid-cols-12 items-center">
       <div className="col-span-5">
-        <div className="pl-[50px] pt-[40px] pr-[20px] flex flex-col">
+        <div className="pl-[50px] pt-[25px] md:pt-[40px] pr-[20px] flex flex-col">
           <h4 className="text-[#000000] py-8 text-[30px]">
           Enter your email and your
 password.
@@ -59,7 +59,7 @@ password.
             onSubmit={onSubmit}
           >
             {({ errors, values, setFieldValue }) => (
-              <Form className="w-full  mt-10 lg:mt-5 mb-6 flex flex-col justify-between">
+              <Form className="w-full  lg:mt-5 mb-6 flex flex-col justify-between">
                 <div className="mb-5">
                   <div className=" relative mb-3">
                     <Field

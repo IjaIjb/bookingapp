@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BookNowModal from "./BookNowModal";
+import Carousel from "react-grid-carousel";
 
 const BookNow = () => {
   const [display, setDisplay] = useState(false);
@@ -35,7 +36,7 @@ const BookNow = () => {
   };
   return (
     <div>
-      <div className="grid grid-cols-12">
+      <div className="grid md:grid-cols-12 gap-4 mb-4">
         <div className="col-span-5">
           <div className="pl-[50px] pt-[40px] pr-[20px] flex flex-col">
           <Link
@@ -124,7 +125,18 @@ const BookNow = () => {
           </div>
         </div>
         <div className="col-span-7">
+ <Carousel cols={1} rows={1} loop>
+            <Carousel.Item>
           <img src="/images/Frame 38.svg" alt="" className=" w-full h-full" />
+            
+            </Carousel.Item>
+            <Carousel.Item>
+            <img src="/images/bg.svg" alt="" className=" w-full h-full" />
+
+            </Carousel.Item>
+           
+          </Carousel>
+
         </div>
       </div>
 
@@ -136,7 +148,7 @@ const BookNow = () => {
       ></div>
 
       {display && (
-        <div className="w-[500px] fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] shadow-[0_4px_10px_rgba(0,0,0,0.1)] bg-white  z-[200] rounded-[10px] overflow-hidden h-fit ">
+        <div className="md:w-[500px] w-full fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] shadow-[0_4px_10px_rgba(0,0,0,0.1)] bg-white  z-[200] rounded-[10px] overflow-hidden h-fit ">
           {showDefaultConnectors()}
         </div>
       )}
