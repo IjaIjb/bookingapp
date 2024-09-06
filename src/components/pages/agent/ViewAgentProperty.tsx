@@ -139,12 +139,12 @@ const ViewAgentProperty = () => {
          
             </div>
 
-            <button
+            <Link to="/agent-all-property"
               // onClick={(e) => handleModal(e)}
               className="bg-[#000000] flex justify-center mt-10 w-full text-white rounded-[5px] md:rounded-[10px]  md:py-3 py-2"
             >
              Add Property
-            </button>
+            </Link>
           </div>
         </div>
         <div className="col-span-7">

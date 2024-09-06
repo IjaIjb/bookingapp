@@ -15,6 +15,7 @@ const Navbar = () => {
         <NavLink to="/" className="">
           <img src="/images/logo2.svg" alt="location" className="" />
         </NavLink>
+        <div className="md:hidden block">
         <div className=" md:order-2 pl-44 md:pl-1  ">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -44,59 +45,20 @@ const Navbar = () => {
             )}
           </button>
         </div>
-
-        <div
-          className="items-center justify-between gap-10 hidden w-full md:flex md:w-auto "
-          id="navbar-sticky"
-        >
-          <div className="flex flex-col mt-5 font-medium md:flex-row lg:space-x-3 lg:mt-3 ml-[80px]">
-            {/* <NavLink
-              to="/"
-              className="block py-2 pl-4 pr-4  text-sm tracking-wider font-normal hover:font-semibold leading-5  lg:pb-5 "
-              style={({ isActive }) =>
-                isActive
-                  ? { color: "#777777", fontWeight: "600" }
-                  : { color: "#777777" }
-              }
-            >
-              The Spaces
-            </NavLink> */}
-
-            <NavLink
-              to="/amenities"
-              className=" flex space-x-2 py-2 pr-4  text-sm tracking-wider font-normal hover:font-semibold leading-5  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#3f71a8] lg:pb-5 "
-              style={({ isActive }) =>
-                isActive
-                  ? { color: "#777777", fontWeight: "600" }
-                  : { color: "#777777" }
-              }
-            >
-              Amenities
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className=" flex space-x-2 py-2 pr-4 text-sm tracking-wider font-normal hover:font-semibold leading-5  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#3f71a8] lg:pb-5 "
-              style={({ isActive }) =>
-                isActive
-                  ? { color: "#777777", fontWeight: "600" }
-                  : { color: "#777777" }
-              }
-            >
-              Contact&nbsp;Us
-            </NavLink>
-            <NavLink
-              to="/book-now"
-              className=" flex space-x-2 py-2 pr-4 text-sm tracking-wider font-normal hover:font-semibold leading-5  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:pb-5 "
-              style={({ isActive }) =>
-                isActive
-                  ? { color: "#777777", fontWeight: "600" }
-                  : { color: "#777777" }
-              }
-            >
-              Book&nbsp;Now
-            </NavLink>
-          </div>
         </div>
+
+
+       
+
+        <div className="flex items-center gap-6">
+          <NavLink to="/profile">
+        <img src="/images/Group 15051.svg" alt="location" className="" />
+        </NavLink>
+        <NavLink to="">
+        <img src="/images/Group 1845.svg" alt="location" className="w-full" />
+        </NavLink>
+        </div>
+        
       </div>
 
       <Transition

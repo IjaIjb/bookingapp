@@ -13,6 +13,11 @@ import AddProperty from './components/pages/agent/AddProperty';
 import AllProperty from './components/pages/agent/AllProperty';
 import ViewAgentProperty from './components/pages/agent/ViewAgentProperty';
 import BecomeAgent from './components/pages/agent/BecomeAgent';
+import Profile from './components/pages/profile/Profile';
+import PersonalInfo from './components/pages/profile/PersonalInfo';
+import Security from './components/pages/profile/security/Security';
+import Earnings from './components/pages/profile/earnings/Earnings';
+import EarningsReport from './components/pages/profile/earnings/EarningsReport';
 
 function App() {
   return (
@@ -29,6 +34,11 @@ function App() {
     <Route  path="/agent-all-property" element={<AllProperty/>}/>
     <Route  path="/agent-view-property" element={<ViewAgentProperty/>}/>
     <Route  path="/become-agent" element={<BecomeAgent/>}/>
+    <Route  path="/profile" element={<Profile/>}/>
+    <Route  path="/personal-info" element={<PersonalInfo/>}/>
+    <Route  path="/security" element={<Security/>}/>
+    <Route  path="/earnings" element={<Earnings/>}/>
+    <Route  path="/earnings-report" element={<EarningsReport/>}/>
     {/* <Route  path="/banking-page" element={<BankPage/>}/>
     <Route  path="/sign-in" element={<Login/>}/>
     <Route  path="/terms" element={<TermsAndCon/>}/>
