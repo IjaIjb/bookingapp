@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Home from './components/pages/Home';
 import ViewProperties from './components/pages/viewProperties/ViewProperties';
 import BookNow from './components/pages/bookNow/BookNow';
@@ -18,6 +18,12 @@ import PersonalInfo from './components/pages/profile/PersonalInfo';
 import Security from './components/pages/profile/security/Security';
 import Earnings from './components/pages/profile/earnings/Earnings';
 import EarningsReport from './components/pages/profile/earnings/EarningsReport';
+import AdminDashboard from './components/Screens/Admin/AdminDashboard';
+import AdminBooking from './components/Screens/Admin/adminBooking/AdminBooking';
+import Agent from './components/Screens/Admin/agent/Agent';
+import ListOfApartment from './components/Screens/Admin/listOfAppointment/ListOfApartment';
+import Payout from './components/Screens/Admin/payout/Payout';
+import Dashboard from './components/Screens/Dashboard';
 
 function App() {
   return (
@@ -46,6 +52,28 @@ function App() {
     <Route  path="/forgot-password" element={<ForgotPword/>}/> 
     <Route  path="/email-verify" element={<EmailVerify/>}/> */}
     
+    {/* Admin section */}
+       {/* <-------- Dashboard Route-------> */}
+       <Route
+          path="/dashboard"
+          element={
+            // <ProtectedRoute >
+            <Dashboard />
+            // {/* </ProtectedRoute> */}
+          }
+        >
+            <Route
+            path="/dashboard"
+            element={<Navigate to="/dashboard/home" replace />}
+          />
+          <Route path="/dashboard/home" element={<AdminDashboard />} />
+
+    {/* <Route  path="/admin-dashboard" element={<AdminDashboard/>}/> */}
+    <Route  path="booking" element={<AdminBooking/>}/>
+    <Route  path="agent" element={<Agent/>}/>
+    <Route  path="payout" element={<Payout/>}/>
+    <Route  path="list-of-apartment" element={<ListOfApartment/>}/>
+</Route>
 
 </Routes>
 </div>
