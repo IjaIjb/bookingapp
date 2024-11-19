@@ -20,10 +20,12 @@ import Earnings from './components/pages/profile/earnings/Earnings';
 import EarningsReport from './components/pages/profile/earnings/EarningsReport';
 import AdminDashboard from './components/Screens/Admin/AdminDashboard';
 import AdminBooking from './components/Screens/Admin/adminBooking/AdminBooking';
-import Agent from './components/Screens/Admin/agent/Agent';
+import Agent from './components/Screens/Admin/agent/AgentHome';
 import ListOfApartment from './components/Screens/Admin/listOfAppointment/ListOfApartment';
-import Payout from './components/Screens/Admin/payout/Payout';
+import Payout from './components/Screens/Admin/payout/PayoutHome';
 import Dashboard from './components/Screens/Dashboard';
+import AgentHome from './components/Screens/Admin/agent/AgentHome';
+import AddApartment from './components/Screens/Admin/listOfAppointment/AddApartment';
 
 function App() {
   return (
@@ -70,9 +72,10 @@ function App() {
 
     {/* <Route  path="/admin-dashboard" element={<AdminDashboard/>}/> */}
     <Route  path="booking" element={<AdminBooking/>}/>
-    <Route  path="agent" element={<Agent/>}/>
+    <Route  path="agent" element={<AgentHome/>}/>
     <Route  path="payout" element={<Payout/>}/>
     <Route  path="list-of-apartment" element={<ListOfApartment/>}/>
+    <Route  path="add-apartment" element={<AddApartment/>}/>
 </Route>
 
 </Routes>
