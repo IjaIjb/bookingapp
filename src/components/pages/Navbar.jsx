@@ -94,7 +94,7 @@ const Navbar = () => {
               <hr className="pb-3" />
 
               <NavLink
-                to="/contact"
+                to="/dashboard/home"
                 onClick={() => setIsOpen(!isOpen)}
                 className="block text-[#616161] pl-3  font-medium hover:bg-gray-100"
               >
